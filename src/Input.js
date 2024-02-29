@@ -1,7 +1,13 @@
 import React from "react";
 import colorNames from "colornames";
 
-const Input = ({ colourValue, setColourValue, setHexValue }) => {
+const Input = ({
+  colourValue,
+  setColourValue,
+  setHexValue,
+  isDarkText,
+  setIsDarkText,
+}) => {
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <label>Add Colour Name:</label>
@@ -16,6 +22,12 @@ const Input = ({ colourValue, setColourValue, setHexValue }) => {
           setHexValue(colorNames(e.target.value));
         }}
       />
+      <button
+      type="button"
+      onClick={() => setIsDarkText(!isDarkText)}
+      >
+        Toggle Text Colour
+      </button>
     </form>
   );
 };
